@@ -29,6 +29,25 @@
   height: 150px;
 }
 
+.container .form-search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 20px;
+}
+
+.container .form-search input {
+  border: 2px solid skyblue;
+}
+
+.container .form-search button {
+  background: turquoise;
+  margin-left: 5px;
+}
+
 .container .user-cards {
   width: 95%;
   display: -webkit-box;
@@ -36,7 +55,7 @@
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  margin: 50px auto;
+  margin: 0 auto 50px;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   padding: 30px;
@@ -45,7 +64,7 @@
 .container .user-cards .card {
   width: 45%;
   border: 1px solid black;
-  padding: 20px;
+  padding: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -53,15 +72,20 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 10px auto;
 }
 
 .container .user-cards .card img {
   width: 150px;
   height: 150px;
   border-radius: 3px;
+}
+
+.container .user-cards .card .card-info {
+  text-align: center;
 }
 
 .container .user-cards .card .card-info h3 {

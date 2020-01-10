@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./App.css";
 import axios from "axios";
 import GithubCard from "./components/GithubCard";
+import githubLogo from "./assets/githublogo.png";
+import lambdaLogo from "./assets/lambdalogo.png";
 
 class App extends Component {
   constructor() {
@@ -45,9 +47,17 @@ class App extends Component {
     // console.log("state", this.state);
     return (
       <div className="container">
-        {this.state.users.map(e => (
-          <GithubCard key={e.id} user={e} />
-        ))}
+        <div className="logos">
+          {" "}
+          <img className="logo-lambda" src={lambdaLogo} alt="Lambda Logo" />
+          <p>❤️'s</p>
+          <img className="logo-github" src={githubLogo} alt="Github Logo" />
+        </div>
+        <div className="user-cards">
+          {this.state.users.map(e => (
+            <GithubCard key={e.id} user={e} />
+          ))}
+        </div>
       </div>
     );
   }

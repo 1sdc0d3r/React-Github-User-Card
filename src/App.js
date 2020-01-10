@@ -46,9 +46,14 @@ class App extends Component {
   }
 
   onChangeHandler = evt => {
-    //todo fix state issue once get preventDefault() working
-    this.state.input = evt.target.value.toLowerCase().trim();
+    this.setState({
+      input: evt.target.value.toLowerCase().trim()
+    });
+  };
 
+  onSubmitHandler = evt => {
+    evt.preventDefault();
+    
     this.state.input
       ? this.setState({
           searching: true,
@@ -65,21 +70,6 @@ class App extends Component {
         });
   };
 
-  onSubmitHandler = evt => {
-    evt.preventDefault();
-    console.log("submit");
-
-    this.state.input !== ""
-      ? this.setState({
-          searching: true,
-          search: this.state.users.map(user => {
-            console.log(user);
-            return user.toLowerCase() === this.state.input;
-          })
-        })
-      : console.log("empty");
-  };
-
   render() {
     // console.log("state", this.state);
     return (
@@ -91,7 +81,7 @@ class App extends Component {
           <img className="logo-github" src={githubLogo} alt="Github Logo" />
         </div>
         <Search
-          onSearch={this.onSubmitHandler}
+          onSubmit={this.onSubmitHandler}
           onChange={this.onChangeHandler}
         />
         <div className="user-cards">

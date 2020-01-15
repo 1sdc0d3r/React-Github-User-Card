@@ -29,9 +29,9 @@ class App extends Component {
         axios
           .get("https://api.github.com/users/1sdc0d3r/followers")
           .then(res =>
-            res.data.forEach(e => {
+            res.data.forEach(user => {
               axios
-                .get(`https://api.github.com/users/${e.login}`)
+                .get(`https://api.github.com/users/${user.login}`)
                 .then(res => {
                   this.setState({
                     users: [...this.state.users, res.data]
@@ -53,7 +53,7 @@ class App extends Component {
 
   onSubmitHandler = evt => {
     evt.preventDefault();
-    
+
     this.state.input
       ? this.setState({
           searching: true,
